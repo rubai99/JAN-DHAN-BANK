@@ -1,0 +1,13 @@
+a.disabled {
+    pointer-events: none;
+    cursor: not-allowed; 
+ }
+
+ label{
+     margin: 10px;
+ }
+
+ .message{
+    color: #117a8b;
+    margin-left: 10px;
+ }

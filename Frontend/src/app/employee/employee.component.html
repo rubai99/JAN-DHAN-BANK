@@ -1,0 +1,268 @@
+<app-header-work></app-header-work>
+<section style="background-color: rgb(226, 226, 224)">
+  <br />
+  <h1
+    style="
+      text-align: center;
+      background-color: white;
+      color: red;
+      border-radius: 50%;
+    "
+  >
+    Welcome to JAN DHAN BANK
+  </h1>
+  <div class="container-ls row">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div style="margin: 5em 10em 2em 3em">
+        <div
+          class="card bg-dark text-white"
+          style="width: 300px; height: 420px; border-radius: 13px"
+        >
+          <img
+            alt=""
+            src="../../assets/images/create-customer.jpg"
+            style="height: 200px; border-radius: 13px"
+          />
+          <div class="card-body">
+            <h4 class="card-title" style="text-align: center">
+              Create Customer
+            </h4>
+            <p class="card-text" style="text-align: center">
+              Click the button to create the customer
+            </p>
+            <div style="text-align: center">
+              <br />
+              <a routerLink="/createCustomer" class="btn btn-primary"
+                >Create or Update</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div style="margin: 5em 10em 2em 3em">
+        <div
+          class="card bg-dark text-white"
+          style="width: 300px; height: 420px; border-radius: 13px"
+        >
+          <img
+            alt=""
+            src="../../assets/images/createaccount.jpeg"
+            style="height: 200px; border-radius: 13px"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Create Account for Customer</h5>
+            <form>
+              Customer ID:<input
+                type="text"
+                name="id"
+                placeholder="Enter the CustomerId"
+                autocomplete="off"
+                ngModel
+                #id="ngModel"
+                style="margin: 10px"
+                required
+              />
+              <br />
+              <br />
+              <div style="text-align: center">
+                <input
+                  type="submit"
+                  name="View"
+                  value="Create Account"
+                  class="btn btn-primary"
+                  (click)="createAccount(id)"
+                  [disabled]="id.invalid"
+                />
+              </div>
+            </form>
+            <p class="message">{{ Accounterror }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div style="margin: 5em 10em 2em 3em">
+        <div
+          class="card bg-dark text-white"
+          style="width: 300px; height: 420px; border-radius: 13px"
+        >
+          <img
+            alt=""
+            src="../../assets/images/delete.jpg"
+            style="height: 200px; border-radius: 13px"
+          />
+          <div class="card-body">
+            <h4 class="card-title">Delete Customer</h4>
+            <form>
+              Customer ID:<input
+                type="text"
+                name="customerId"
+                id="customerId"
+                placeholder="Enter the customerId"
+                autocomplete="off"
+                ngModel
+                #customerId="ngModel"
+                style="margin: 10px"
+                required
+                min="10"
+              />
+              <br />
+              <br />
+              <div style="text-align: center">
+                <input
+                  type="submit"
+                  name="Delete"
+                  value="Delete"
+                  class="btn btn-primary"
+                  (click)="onDelete(customerId)"
+                  [disabled]="customerId.invalid"
+                />
+              </div>
+            </form>
+            <p class="message">{{ deletemsg }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-ls row">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div style="margin: 4em 10em 14em 3em">
+        <div
+          class="card bg-dark text-white"
+          style="width: 300px; height: 420px; border-radius: 13px"
+        >
+          <img
+            alt=""
+            src="../../assets/images/getAllCustomers.png"
+            style="height: 200px; border-radius: 13px"
+          />
+          <div class="card-body">
+            <h4 class="card-title">View the Customer</h4>
+            <form action="/viewCustomer" method="get">
+              User ID:<input
+                type="text"
+                name="userId"
+                id="userId"
+                placeholder="Enter the UserId"
+                autocomplete="off"
+                ngModel
+                #userId="ngModel"
+                required
+                style="margin: 10px"
+              />
+              <br />
+              <br />
+              <div style="text-align: center">
+                <input
+                  type="submit"
+                  name="View"
+                  value="View Customer"
+                  (click)="onDisplay(userId)"
+                  class="btn btn-primary"
+                  [disabled]="userId.invalid"
+                />
+              </div>
+            </form>
+          </div>
+          <div style="text-align: left">
+            <p class="message">{{ viewCustomer }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div style="margin: 4em 0em 0em 3em">
+        <div
+          class="card bg-dark text-white"
+          style="width: 300px; height: 420px; border-radius: 13px"
+        >
+          <img
+            alt=""
+            src="../../assets/images/deposit.jpg"
+            style="height: 200px; border-radius: 13px"
+          />
+          <h4 class="card-title">Deposit Amount</h4>
+          <form #f="ngForm">
+            <label>Account ID: </label>
+            <input
+              type="number"
+              name="accountId"
+              placeholder="Enter the AccountId"
+              autocomplete="off"
+              required
+              ngModel
+              #accountId="ngModel"
+            />
+            <br />
+            <label>Amount: </label>
+            <input
+              type="number"
+              name="amount"
+              placeholder="Enter the amount"
+              autocomplete="off"
+              required
+              ngModel
+              #amount="ngModel"
+            />
+            <br />
+            <br />
+            <div style="text-align: center">
+              <input
+                type="submit"
+                name="View"
+                value="Deposit Amount"
+                class="btn btn-primary"
+                (click)="onDeposit(f)"
+                style="margin-center: 10px"
+                [disabled]="accountId.invalid && amount.invalid"
+              />
+            </div>
+          </form>
+          <p class="message">{{ depositmsg }}</p>
+          <br />
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div style="margin: 4em 10em 14em 3em">
+        <div
+          class="card bg-dark text-white"
+          style="width: 300px; height: 420px; border-radius: 13px"
+        >
+          <img
+            alt=""
+            src="../../assets/images/trans1.png"
+            style="height: 200px; border-radius: 13px"
+          />
+          <div class="card-body">
+            <h4 class="card-title">Service Charge Deduction</h4>
+            <p class="card-text">
+              Charges will be deducted for not maintaining minimum balance
+            </p>
+            <form action="/deductServiceTax" method="post">
+              <br />
+              <div style="text-align: center">
+                <input
+                  type="submit"
+                  name="View"
+                  value="Deduct"
+                  class="btn btn-primary"
+                  (click)="onServiceCharge()"
+                />
+              </div>
+            </form>
+            <p class="message">{{ servicemsg }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

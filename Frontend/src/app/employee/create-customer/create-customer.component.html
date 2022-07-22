@@ -1,0 +1,81 @@
+<app-header-work></app-header-work>
+<section>
+    <br>
+    <div class="container" id="login-box">
+        <div class="container justify-content">
+            <div class="alert-success" *ngIf="createmsg" style="text-align: center;">
+                <p><b>{{createmsg}}</b></p>
+            </div>
+            <div class="alert-danger" *ngIf="errormsg" style="text-align: center;">
+                <p><b>{{errormsg}}</b></p>
+            </div>
+            <form #create="ngForm">
+                <table class="container">
+                    <thead>
+                        <td colspan="3" style="text-align: center;">
+                            <h2><i>Customer Creation!!</i></h2>
+                        </td>
+                        <td> 
+                        </td>
+                        <td></td>
+                    </thead>
+                    <tr>
+                        
+                    </tr>
+                    <tr>
+                    <th>Enter Customer ID</th>
+                    <td>
+                    </td>
+                    <td style="text-align: right;">
+                        <input type="text" name="Id" placeholder="Enter Id" autocomplete="off" required="required" ngModel #Id="ngModel" 
+                        class="form-control">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Enter Username</th>
+                    <td></td>
+                    <td>
+                        <input type="text" name="username" placeholder="Username" autocomplete="off" required="required"  ngModel #username="ngModel"
+                        class="form-control" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>Enter Password</th>
+                    <td></td>
+                    <td>
+                        <input type="password" path="password" name="password" placeholder="Password" ngModel #password="ngModel"
+                        required="required" class="form-control" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>Enter Date Of Birth</th>
+                    <td></td>
+                    <td>
+                        <input type="date" id="date" path="dateOfBirth" name="dob" placeholder="Date of Birth" ngModel #dob="ngModel"
+                        required="required" class="form-control" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>Enter PAN Number</th>
+                    <td></td>
+                    <td>
+                        <input type="text" path="pan" name="pan" placeholder="Pan Number" autocomplete="off" ngModel #pan="ngModel"
+                        maxlength="10" required="required" class="form-control" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>Enter Present Address</th>
+                    <td></td>
+                    <td>
+                        <input type="text" path="address" name="address" placeholder="address" autocomplete="off" ngModel #address="ngModel"
+                        required="required" class="form-control" />
+                    </td>
+                </tr>
+                <tr style="text-align: right;">
+                    <th><button type="submit" name="signup_submit" class="btn btn-success" (click)="onSubmit(create)">Create</button></th>
+                </tr>
+            </table>
+        </form>
+    </div>
+    </div>
+</section>
