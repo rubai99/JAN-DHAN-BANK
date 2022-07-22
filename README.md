@@ -1,7 +1,6 @@
 # JAN-DHAN-BANK
 This is a banking website , It provides high availability operation for their client &amp; bank employees without disruption . here have different facility for employees and clients . for employee can create customer , delete customer , deposit , view customer Details , Create account and service charge deduction and for customer can withdraw , Transfer and Transaction . 
 
-# Retail-Banking-System
 
 
 ### Steps to install the project files
